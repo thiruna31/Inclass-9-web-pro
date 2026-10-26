@@ -1,0 +1,17 @@
+Campus Crust
+PHP Form Validation Practice — Submission Notes
+
+Student: Thirunavukkarasu Palaniappa
+ Campus Crust — PHP Form Validation Practice
+Git:https://github.com/thiruna31/Inclass-9-web-pro.git
+codd:https://codd.cs.gsu.edu/~tpalaniappa1/campuscrust/order.html
+
+Files Included
+- order.html: Contains the order form for the customer name, pizza size, quantity, optional toppings, and kitchen note.
+- order.php: Checks the submitted form on the server and displays the practice ticket with user-provided text safely escaped.
+
+Two-Sentence Explanation
+The input name is the key PHP uses to read a submitted value from $_POST, while the id links a form control to its label and identifies that control in the page. An unchecked checkbox is not included in the submitted form data, so if no toppings are selected, PHP should handle the missing toppings[] value as an empty list.
+
+Critical-Thinking Response
+I would reject the whole request if it contains even one topping that is not on the allowed list. Client-side checks can be bypassed by changing the page or sending a custom request, so checking every topping on the server and rejecting an invalid submission keeps the ticket consistent and lets the user correct the choice.

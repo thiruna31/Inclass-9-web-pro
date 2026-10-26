@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Crust | Pizza Practice</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 700px; margin: 32px auto; padding: 20px;
+      background: #faf5e9; color: #352b22;
+    }
+    header { text-align: center; margin-bottom: 22px; }
+    .eyebrow { color: #a53d23; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .82rem; }
+    h1 { margin: 4px 0; font-size: clamp(2rem, 6vw, 3rem); }
+    .intro { margin: 8px auto; max-width: 520px; }
+    form {
+      background: #fff; padding: 24px; border: 1px solid #ddcfb5;
+      border-radius: 14px; box-shadow: 0 8px 24px rgba(53,43,34,.06);
+    }
+    label { display: block; margin: 16px 0 6px; font-weight: 600; }
+    input:not([type="checkbox"]), select, textarea {
+      width: 100%; padding: 11px 12px; font: inherit;
+      border: 1px solid #ac9f8b; border-radius: 7px; background: #fff;
+    }
+    input:focus, select:focus, textarea:focus, button:focus {
+      outline: 3px solid #e8b39d; outline-offset: 2px;
+    }
+    fieldset { border: 1px solid #ddcfb5; border-radius: 8px; margin: 20px 0; padding: 12px 16px; }
+    legend { font-weight: 700; padding: 0 6px; }
+    .check-option { display: flex; align-items: center; gap: 9px; margin: 7px 0; }
+    .check-option label { display: inline; margin: 0; font-weight: 400; }
+    .hint { display: block; color: #65594a; font-size: .9rem; margin-top: 5px; }
+    button {
+      margin-top: 18px; width: 100%; background: #a53d23; color: white;
+      padding: 13px 18px; border: 0; border-radius: 7px; font: inherit;
+      font-weight: 700; cursor: pointer;
+    }
+    button:hover { background: #84301c; }
+    .notice { margin-top: 18px; padding: 12px 14px; background: #f3ead9; border-radius: 8px; font-size: .92rem; }
+    footer { text-align: center; margin-top: 20px; color: #65594a; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">A PHP form-validation practice project</p>
+    <h1>Campus Crust 🍕</h1>
+    <p class="intro">Build a practice pizza ticket. Fill in the form and PHP will validate your choices before displaying the result.</p>
+  </header>
+
+  <form action="order.php" method="post">
+    <label for="chef">Chef name (required)</label>
+    <input id="chef" name="customer" type="text" maxlength="40" required>
+    <small class="hint">Use a fictional name for this classroom exercise.</small>
+
+    <label for="pizza-size">Pizza size (required)</label>
+    <select id="pizza-size" name="size" required>
+      <option value="small">Small</option>
+      <option value="medium" selected>Medium</option>
+      <option value="large">Large</option>
+    </select>
+
+    <label for="quantity">Quantity (1–5, required)</label>
+    <input id="quantity" name="quantity" type="number" min="1" max="5" step="1" required>
+
+    <fieldset>
+      <legend>Toppings (optional)</legend>
+      <div class="check-option">
+        <input id="mushroom" name="toppings[]" type="checkbox" value="mushroom">
+        <label for="mushroom">Mushroom</label>
+      </div>
+      <div class="check-option">
+        <input id="olive" name="toppings[]" type="checkbox" value="olive">
+        <label for="olive">Olive</label>
+      </div>
+      <div class="check-option">
+        <input id="pineapple" name="toppings[]" type="checkbox" value="pineapple">
+        <label for="pineapple">Pineapple</label>
+      </div>
+      <small class="hint">Choose any combination, or leave all unchecked for plain cheese.</small>
+    </fieldset>
+
+    <label for="notes">Kitchen note (optional)</label>
+    <textarea id="notes" name="notes" rows="4" maxlength="200" placeholder="Example: Extra crispy, please!"></textarea>
+    <small class="hint">Maximum 200 characters in the browser; PHP also validates the submitted value.</small>
+
+    <button type="submit">Make my practice ticket</button>
+  </form>
+
+  <div class="notice">
+    <strong>Classroom demo only:</strong> this form does not take payment, save data, or send an order to a kitchen.
+  </div>
+
+  <footer>Prepared by Thirunavukkarasu Palaniappa · PHP Form Practice</footer>
+</body>
+</html>
